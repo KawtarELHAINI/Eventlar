@@ -57,11 +57,10 @@ class RegisteredUserController extends Controller
         return redirect('/login')->withInput(['email' => $request->email]);
     }
 
-////////////////////////////////////////////////////////////////
 public function filter(Request $request)
 {
-    $phone = $request->input('phone');
-    $address = $request->input('address');
+   ;
+    $status = $request->input('status');
     $client = Client::where('user_id', Auth::id())->first();
     $reservations = Reservation::where('client_id', $client->id)->get();
     $organisateur = [];
@@ -80,8 +79,7 @@ public function filter(Request $request)
 
     // Perform filtering logic using join query
     $filteredOrganisateurs = Organisateur::query()
-    ->where('phone', $phone)
-    ->orWhere('address', $address)
+    ->where('statut', $statut)
     ->whereHas('reservation.ticket')
         ->get();
 
