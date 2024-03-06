@@ -13,12 +13,12 @@ class Event extends Model
 
         public function category()
         {
-            return $this->hasMany(category::class, 'category_id');
+            return $this->belongsTo(category::class, 'category_id');
         }
         
         public function Organisateur()
         {
-            return $this->hasMany(organisateur::class, 'organisateur_id');
+            return $this->belongsTo(organisateur::class, 'organisateur_id');
         }
     }
     

@@ -9,10 +9,7 @@ class Reservation extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function Organisateur()
-    {
-        return $this->belongsTo(Organisateur::class, 'organisateur_id');
-    }
+    
     public function Client()
     {
         return $this->belongsTo(Client::class, 'client_id');
