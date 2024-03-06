@@ -19,6 +19,9 @@ return new class extends Migration
             $table->foreignId("organisateur_id")->constrained('organisateur')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId("client_id")->constrained('client')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('status');
+            $table->dateTime('time');
+            $table->string('location');
+            $table->string('deleted');
             $table->timestamps();
         });
     }
