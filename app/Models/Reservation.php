@@ -8,15 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-    
-    public function Client()
+    protected $fillable = [
+        'event_id',
+    ];
+    public function event()
     {
-        return $this->belongsTo(Client::class, 'client_id');
-    }
-    public function ticket()
-    {
-        return $this->hasone(Ticket::class);
+        return $this->belongsTo(Event::class);
     }
 }
-
